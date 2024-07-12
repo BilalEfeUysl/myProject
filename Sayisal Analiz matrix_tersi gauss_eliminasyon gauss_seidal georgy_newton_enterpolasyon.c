@@ -23,7 +23,7 @@ int isNumber(char );
 
 
 
-float fh(char *fonk, float x){      //fonk'u verilen x değerine göre hesaplayan fonksiyon (fonksiyon hesaplayıcı)
+float fh(char *fonk, float x){      //fonk'u verilen x deÃ°erine gÃ¶re hesaplayan fonksiyon (fonksiyon hesaplayÃ½cÃ½)
 
 	struct polinom *ayrikfonk;
 	
@@ -168,12 +168,12 @@ float sayihesap(char *fonk,int *i){
 
 int isArtieksi(char a){
 	if( a - '+' == 0 || a - '-' == 0){
-		return 1;									//artı ve ya eksi olup olmadığını kontrol etme
+		return 1;									//artÃ½ ve ya eksi olup olmadÃ½Ã°Ã½nÃ½ kontrol etme
 	}else{
 		return 0;
 	}
 }
-int isNumber(char a){  //sayı mı kontrol ediyor
+int isNumber(char a){  //sayÃ½ mÃ½ kontrol ediyor
     return (a >= '0' && a <= '9');                              
 }																				*/
 
@@ -256,20 +256,20 @@ int menu(){		//
 	return n;
 }
 
-void inversematrix(int N,float **matrix){		//verilen matris ve matrisin boyutu ile matrisin tersini ekrana yazdıran fonksiyon
+void inversematrix(int N,float **matrix){		//verilen matris ve matrisin boyutu ile matrisin tersini ekrana yazdÃ½ran fonksiyon
 	float **inverse;					
 	int i,j,k;
 	float bolme;
 	inverse = (float**)calloc(N,sizeof(float *));
 	for(i=0;i<N;i++){												
-		inverse[i] = (float *)calloc(N,sizeof(float));	//matrisin tersini tutacak dinamik açılan matris
+		inverse[i] = (float *)calloc(N,sizeof(float));	//matrisin tersini tutacak dinamik aÃ§Ã½lan matris
 	}
 	
 	for(i=0;i<N;i++){
 		for(j=0;j<N;j++){
 			if(i==j){
 				inverse[i][j] = 1;
-			}else{							//birim matrisin değerlerini atıyoruz
+			}else{							//birim matrisin deÃ°erlerini atÃ½yoruz
 				inverse[i][j] = 0;
 			}
 		}
@@ -278,7 +278,7 @@ void inversematrix(int N,float **matrix){		//verilen matris ve matrisin boyutu i
 	for(i = 0; i < N; i++) {
         for(j = 0; j < N; j++) {
             if(i != j) {
-                bolme = matrix[j][i] / matrix[i][i]; 				//sırayla gezerek değerleri güncelleye güncelleye matrisin tersini alan kod
+                bolme = matrix[j][i] / matrix[i][i]; 				//sÃ½rayla gezerek deÃ°erleri gÃ¼ncelleye gÃ¼ncelleye matrisin tersini alan kod
                 for(k = 0; k < N; k++) {						
                     matrix[j][k] = matrix[j][k] - matrix[i][k] * bolme;
                     inverse[j][k] = inverse[j][k] - inverse[i][k] * bolme;
@@ -290,14 +290,14 @@ void inversematrix(int N,float **matrix){		//verilen matris ve matrisin boyutu i
     for(i = 0; i < N; i++) {
         bolme = matrix[i][i];
         for(j = 0; j < N; j++) {
-            matrix[i][j] = matrix[i][j] / bolme;			//ilk matrisin köşegenini 1 e eşit olacak şekilde değerleri güncelleyen kod
+            matrix[i][j] = matrix[i][j] / bolme;			//ilk matrisin kÃ¶Ã¾egenini 1 e eÃ¾it olacak Ã¾ekilde deÃ°erleri gÃ¼ncelleyen kod
             inverse[i][j] = inverse[i][j] / bolme;
         }
     }
 	
 	printf("\n\nMatrisin Tersi:\n\n");
     for(i = 0; i < N; i++) {
-        for(j = 0; j < N; j++) {					// ekrana yazdırma
+        for(j = 0; j < N; j++) {					// ekrana yazdÃ½rma
             printf("%8.2f ", inverse[i][j]);
         }
         printf("\n");
@@ -310,17 +310,17 @@ void inversematrix(int N,float **matrix){		//verilen matris ve matrisin boyutu i
 
 
 
-void elemination(float **matrix,int N){		//eliminasyon yöntemiyle değişken değerlerini hesaplama
+void elemination(float **matrix,int N){		//eliminasyon yÃ¶ntemiyle deÃ°iÃ¾ken deÃ°erlerini hesaplama
 						
 	int i,j,k;
 	float bolme, *degiskenler, sonuc;		
 	
-	degiskenler = (float *)calloc(N,sizeof(float));				//değişkenleri tutan pointer
+	degiskenler = (float *)calloc(N,sizeof(float));				//deÃ°iÃ¾kenleri tutan pointer
 	
 	for(i = 0; i < N; i++) {
         for(j = 0; j < N; j++) {
             if(j>i) {
-                bolme = matrix[j][i] / matrix[i][i];				//matrisi üst üçgen haline getirme işlemi
+                bolme = matrix[j][i] / matrix[i][i];				//matrisi Ã¼st Ã¼Ã§gen haline getirme iÃ¾lemi
                 for(k = 0; k < N+1; k++) {
                     matrix[j][k] = matrix[j][k] - matrix[i][k] * bolme;
                 }
@@ -330,7 +330,7 @@ void elemination(float **matrix,int N){		//eliminasyon yöntemiyle değişken değer
     
     for(i = 0; i < N; i++) {
         bolme = matrix[i][i];
-        for(j = 0; j < N+1; j++) {				   //köşegeni 1 e eşitleme	
+        for(j = 0; j < N+1; j++) {				   //kÃ¶Ã¾egeni 1 e eÃ¾itleme	
             matrix[i][j] = matrix[i][j] / bolme;
         }
     }
@@ -340,13 +340,13 @@ void elemination(float **matrix,int N){		//eliminasyon yöntemiyle değişken değer
     	if(j!=N-1){
     		for(k=0;k<N-j-1;k++){
     			sonuc += matrix[N-i-1][N-1-k]*degiskenler[N-1-k];
-			}														//değişkenleri hesaplama
+			}														//deÃ°iÃ¾kenleri hesaplama
 		}
 		degiskenler[j] = matrix[j][N] - sonuc;
 		j--;
 	}
 	printf("\n\n");
-	for(i=0;i<N;i++){												//ekrana yazdırma
+	for(i=0;i<N;i++){												//ekrana yazdÃ½rma
 		printf("%d. degiskenin degeri: %.2f\n",i+1,degiskenler[i]);
 	}
     
@@ -360,13 +360,13 @@ void gaussSeidal(float **matrix, float x, float y, float z,int max,float epsilon
 	 	
    	for(i=1;i<3;i++){
    		if( fabs(matrix[i][0]) > fabs(matrix[buyuk][0])){
- 			buyuk = i;										// x in mutlak en büyük katsayısını bulma	
+ 			buyuk = i;										// x in mutlak en bÃ¼yÃ¼k katsayÃ½sÃ½nÃ½ bulma	
 		}
 	}
 	if(buyuk != 0){
 		for(i=0;i<4;i++){
 			temp = matrix[0][i];
-			matrix[0][i] = matrix[buyuk][i];	//denklemlerin yerlerini değiştirme
+			matrix[0][i] = matrix[buyuk][i];	//denklemlerin yerlerini deÃ°iÃ¾tirme
 			matrix[buyuk][i] = temp;
 		}
 	}
@@ -374,7 +374,7 @@ void gaussSeidal(float **matrix, float x, float y, float z,int max,float epsilon
 	buyuk = 1;
 	if(fabs(matrix[2][1])>fabs(matrix[1][1])){
 		buyuk = 2; 
-		for(i=0;i<4;i++){							//y için denklem yerini düzenleme
+		for(i=0;i<4;i++){							//y iÃ§in denklem yerini dÃ¼zenleme
 			temp = matrix[1][i];
 			matrix[1][i] = matrix[2][i];		
 			matrix[2][i] = temp;
@@ -391,7 +391,7 @@ void gaussSeidal(float **matrix, float x, float y, float z,int max,float epsilon
 			printf("\n%d. iterasyon:\n",i+2);
 			x1 = x;
 			y1 = y;
-			z1 = z;					//değişkenleri hesaplama aşamasını ekrana yazdırma
+			z1 = z;					//deÃ°iÃ¾kenleri hesaplama aÃ¾amasÃ½nÃ½ ekrana yazdÃ½rma
 		
 			x = (matrix[0][3]-matrix[0][2]*z-matrix[0][1]*y)/matrix[0][0];
 			y = (matrix[1][3]-matrix[1][2]*z-matrix[1][0]*x)/matrix[1][1];
@@ -421,14 +421,14 @@ void gnEnterpolasyon(float **matrix,int N,float h,float x){
 	enterpolasyon = (float **)calloc(N,sizeof(float *));
 	for(i=0;i<N;i++){
 		enterpolasyon[i] = (float *)calloc(N,sizeof(float));
-	}																	//dinamik yer açma
+	}																	//dinamik yer aÃ§ma
 	
 	for(i=0;i<N;i++){
 		enterpolasyon[i][0] = matrix[i][1];		
 	}
 	
 	for(i=0;i<N-1;i++){
-		for(j=0;j<N-1-i;j++){														//enterpolasyon matrisi içinde enterpolasyon grafiğini oluşturuyor
+		for(j=0;j<N-1-i;j++){														//enterpolasyon matrisi iÃ§inde enterpolasyon grafiÃ°ini oluÃ¾turuyor
 			enterpolasyon[j][i+1] = enterpolasyon[j+1][i] - enterpolasyon[j][i];		
 		}
 	}
@@ -437,7 +437,7 @@ void gnEnterpolasyon(float **matrix,int N,float h,float x){
 	for(i=0;i<N;i++){
 		arasonuc = 1;
 		for(j=0;j<i;j++){
-			arasonuc = arasonuc*(x-matrix[j][0])/(h*(j+1));		//istenilen x değerine göre f(x) i hesaplama
+			arasonuc = arasonuc*(x-matrix[j][0])/(h*(j+1));		//istenilen x deÃ°erine gÃ¶re f(x) i hesaplama
 		}
 		sonuc += enterpolasyon[0][i]*arasonuc;
 	}
@@ -460,7 +460,7 @@ int main(){
 	float **matrix;
 	char dizi[200];
 	
-	do{  // her seferinde işlemden çıktıktan sonra ekrana basılacak menü için kullandığım do-while döngüsü işlem sonunda her şey silinip menü tekrar basılıyor
+	do{  // her seferinde iÃ¾lemden Ã§Ã½ktÃ½ktan sonra ekrana basÃ½lacak menÃ¼ iÃ§in kullandÃ½Ã°Ã½m do-while dÃ¶ngÃ¼sÃ¼ iÃ¾lem sonunda her Ã¾ey silinip menÃ¼ tekrar basÃ½lÃ½yor
 		n = menu();
 		
 		switch(n){
